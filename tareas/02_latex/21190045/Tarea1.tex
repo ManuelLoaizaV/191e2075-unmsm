@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\title{Hola, mundo}
+\author{Jefferson Tavara}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Comenzando}
+
+\textbf{Hola, mundo.} Hoy estoy aprendiendo \LaTeX. \LaTeX{} es un excelente lenguaje para producir documentos académicos. Puedo escribir matemáticas en línea, como \(a^2 + b^2 = c^2\). También puedo darles a las ecuaciones su propia línea:
+
+\begin{equation}
+\gamma^2 + \theta^2 = \omega^2
+\end{equation}
+Las ``ecuaciones de Maxwell'' son nombradas en honor a James Clark Maxwell y son las siguientes:
+
+\begin{align}
+    \vec{\nabla} \cdot \vec{E} &= \frac{\rho}{\epsilon_0} && \text{Ley de Gauss} \\
+    \vec{\nabla} \cdot \vec{B} &= 0 && \text{Ley de Gauss para el magnetismo} \\
+    \vec{\nabla} \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} && \text{Ley de Faraday} \\
+    \vec{\nabla} \times \vec{B} &= \mu_0 \left(\epsilon_0 \frac{\partial \vec{E}}{\partial t}+\vec{J} \right) && \text{Ley de Ampere}
+\end{align}
+Las ecuaciones \textcolor{blue}{2, 3, 4} y  \textcolor{blue}{5} son algunas de las más importantes en Física.
+
+\section{¿Qué hay sobre las ecuaciones matriciales?}
+
+\[
+\begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{pmatrix}
+\begin{bmatrix}
+    v_1 \\
+    v_2 \\
+    \vdots \\
+    v_n
+\end{bmatrix}
+=
+\begin{matrix}
+    w_1 \\
+    w_2 \\
+    \vdots \\
+    w_n
+\end{matrix}
+\]
+
+\section{Tablas y Figuras}
+
+Crear una tabla no es muy diferente de crear una matriz:
+
+\begin{table}
+\centering
+\caption{Mi primera tabla.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & 1 & 2 & 3 \\
+\hline
+$f(x)$ & 4 & 8 & 12 \\
+\hline
+f(x) & 4 & 8 & 12 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{Figura1.png}
+\caption{Cualquier imagen.}
+\end{figure}
+\end{document}
