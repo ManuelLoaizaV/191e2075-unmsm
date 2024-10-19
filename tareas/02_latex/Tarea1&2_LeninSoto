@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{circuitikz}  % Paquete para dibujar circuitos
+\usepackage{pgfplots}    % Paquete para gráficos
+\pgfplotsset{compat=1.17}
+
+\title{Diseño Básico de un Circuito RLC en Serie}
+\author{LENIN SOTO RAMOS}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+El circuito RLC en serie es uno de los circuitos más comunes en electrónica, y combina tres componentes básicos: una resistencia (\(R\)), un inductor (\(L\)) y un capacitor (\(C\)). Estos elementos trabajan juntos para controlar la corriente y el voltaje en diferentes momentos.
+
+En esta oportunidad, presentaré un circuito RLC en serie y analizaremos cómo se comporta la corriente a lo largo del tiempo cuando aplicamos una fuente de voltaje. Usando un gráfico simple para mostrar este comportamiento y entender mejor cómo funcionan estos componentes en conjunto.
+
+\section{Diseño del Circuito}
+Aquí está el circuito RLC en serie que he dibujado usando el paquete `circuitikz`.
+
+\begin{figure}[h!]
+    \centering
+    \begin{circuitikz} \draw
+    (0,0) to[V, l=$V_{in}$] (0,4) 
+    -- (2,4) to[R, l=$R$] (4,4)
+    -- (6,4) to[L, l=$L$] (6,0)
+    -- (4,0) to[C, l=$C$] (2,0)
+    -- (0,0);
+    \end{circuitikz}
+    \caption{Circuito RLC en serie.}
+\end{figure}
+
+\section{Breve Explicación del Circuito}
+Este circuito tiene tres componentes principales:
+\begin{itemize}
+    \item \textbf{Resistencia ($R$)}: Reduce la corriente en el circuito.
+    \item \textbf{Inductor ($L$)}: Almacena energía en forma de campo magnético.
+    \item \textbf{Capacitor ($C$)}: Almacena energía en forma de campo eléctrico.
+\end{itemize}
+
+El objetivo de este circuito es ver cómo responde la corriente cuando se le aplica un voltaje.
+
+\section{Gráfica de la Corriente}
+Esta gráfica es solo un ejemplo y muestra cómo podría comportarse la corriente en función del tiempo.
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        xlabel={Tiempo (s)},
+        ylabel={Corriente (A)},
+        grid=major,
+        ]
+    \addplot[smooth,blue] plot coordinates {
+    (0,0) (1,0.1) (2,0.15) (3,0.12) (4,0.08) (5,0.05)
+    };
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Gráfica de la corriente en el tiempo.}
+\end{figure}
+Se puede observar cómo la corriente en el circuito RLC en serie varía con el tiempo. Inicialmente, cuando se aplica la fuente de voltaje, la corriente comienza a aumentar rápidamente. Esto se debe a que el capacitor y el inductor reaccionan a la señal de entrada de forma opuesta: el capacitor permite el paso de la corriente, mientras que el inductor la restringe momentáneamente.
+
+A medida que el tiempo avanza, la corriente alcanza un valor máximo, debido a que la energía almacenada en el inductor y el capacitor empieza a equilibrarse. Posteriormente, la corriente comienza a disminuir gradualmente. Este comportamiento oscilatorio es típico en los circuitos RLC debido a la combinación de los elementos de almacenamiento de energía.
+
+Finalmente, la corriente se estabiliza en un valor más bajo, ya que la resistencia del circuito disipa la energía, y las oscilaciones se atenúan. En resumen, la gráfica refleja la forma en que los componentes interactúan para regular el flujo de corriente con el tiempo.
+
+\section{Conclusión}
+En este proyecto básico, hemos dibujado un circuito RLC en serie y mostrado una gráfica simple de la corriente. Este tipo de circuito es útil para aprender los conceptos de inductancia, capacitancia y resistencia. Con mayor elaboración, se podrían hacer análisis más profundos, pero este es un buen punto de partida.
+
+\end{document}
