@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapa de Lotes</title>
+<meta name="description" content="Plano interactivo de lotes: disponibilidad, áreas y precios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Great+Vibes&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body>
+<header class="barra">
+  <div class="marca">
+    <img class="marca-logo" id="marcaLogo" alt="" hidden>
+    <span class="marca-nombre" id="sitioNombre">Mapa de Lotes</span>
+    <span class="marca-sub" id="marcaLema"></span>
+  </div>
+  <nav class="pestanas" id="pestanas" role="tablist" aria-label="Condominios"></nav>
+</header>
+
+<div class="aviso-borrador" id="avisoBorrador" hidden>
+  Vista previa del borrador del editor. Los visitantes de la web todavía no ven estos cambios.
+</div>
+
+<main class="visor">
+  <section class="tarjeta plano-card" aria-labelledby="condNombre">
+    <div class="plano-cabecera">
+      <div>
+        <h1 id="condNombre">Cargando…</h1>
+        <p id="condUbicacion"></p>
+      </div>
+      <div class="resumen" id="resumen"></div>
+    </div>
+
+    <div class="plano-herramientas">
+      <div class="segmento" role="group" aria-label="Filtrar lotes">
+        <button type="button" id="filtroTodos" aria-pressed="true">Todos</button>
+        <button type="button" id="filtroDisp" aria-pressed="false">Solo disponibles</button>
+      </div>
+      <div class="zoom">
+        <button type="button" class="btn btn-icono" id="zoomMenos" aria-label="Alejar">−</button>
+        <button type="button" class="btn btn-icono" id="zoomMas" aria-label="Acercar">+</button>
+        <button type="button" class="btn" id="zoomReset">Encuadrar</button>
+        <button type="button" class="btn" id="btnImagenPdf" title="Solo el plano con el fondo y el logo, a toda la hoja">Imagen para imprimir (PDF)</button>
+        <button type="button" class="btn" id="btnPlanoPdf" title="Plano con la tabla de lotes disponibles y precios">Plano con precios (PDF)</button>
+      </div>
+    </div>
+
+    <div class="plano-marco" id="marco">
+      <svg id="plano" class="plano-svg interactivo" role="img" aria-label="Plano de lotes"></svg>
+    </div>
+
+    <div class="leyenda" id="leyenda"></div>
+    <p class="nota-plano">Toca un lote para ver sus datos. Para acercar usa los botones, o <b>Ctrl + rueda</b> del ratón; arrastra para moverte cuando estés acercado.</p>
+  </section>
+
+  <aside class="tarjeta panel" id="panel" aria-live="polite"></aside>
+</main>
+
+<footer class="pie" id="pie"></footer>
+
+<!-- Se llena al exportar a PDF (plano o cotización) -->
+<div id="impresion"></div>
+
+<script src="data/condominios.js"></script>
+<script src="assets/js/plano.js"></script>
+<script src="assets/js/visor.js"></script>
+</body>
+</html>

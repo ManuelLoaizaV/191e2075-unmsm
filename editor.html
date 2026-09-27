@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Editor de Planos</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=Great+Vibes&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+<body class="editor-body">
+<header class="barra">
+  <div class="marca"><span class="marca-nombre">Editor de planos</span></div>
+  <nav class="pestanas" id="pestanas" role="tablist" aria-label="Condominios"></nav>
+  <div class="acciones">
+    <button type="button" class="btn btn-icono" id="btnDeshacer" title="Deshacer (Ctrl+Z)" aria-label="Deshacer">↶</button>
+    <button type="button" class="btn btn-icono" id="btnRehacer" title="Rehacer (Ctrl+Y)" aria-label="Rehacer">↷</button>
+    <a class="btn" id="btnVista" href="index.html?borrador" target="_blank" rel="noopener">Vista previa</a>
+    <button type="button" class="btn" id="btnImportar">Importar</button>
+    <button type="button" class="btn btn-primario" id="btnPublicar">Publicar cambios</button>
+    <input type="file" id="archivoImportar" accept=".js,.json,application/json,text/javascript" hidden>
+  </div>
+</header>
+
+<div class="aviso-borrador" id="avisoBorrador" hidden>
+  <span>Tienes cambios guardados en este navegador que aún no están publicados en la web.</span>
+  <button type="button" class="btn" id="btnDescartar">Descartar borrador</button>
+</div>
+
+<main class="editor">
+  <nav class="herramientas" id="herramientas" aria-label="Herramientas">
+    <button type="button" class="herr" data-herr="seleccionar" title="Seleccionar y mover (V)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 3l14 8-6 1.5L10 19z"/></svg>Mover</button>
+    <button type="button" class="herr" data-herr="mano" title="Desplazar la vista (H o barra espaciadora)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 12V5a1.5 1.5 0 013 0v6m0-7a1.5 1.5 0 013 0v7m0-5a1.5 1.5 0 013 0v8a6 6 0 01-6 6h-1a6 6 0 01-5-3l-2.5-4.5a1.5 1.5 0 012.5-1.5L8 13"/></svg>Vista</button>
+    <div class="herr-sep"></div>
+    <button type="button" class="herr" data-herr="lote" title="Dibujar lote (L)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 5h13l-3 14H4z"/><circle cx="7" cy="5" r="1.6" fill="currentColor"/><circle cx="20" cy="5" r="1.6" fill="currentColor"/><circle cx="17" cy="19" r="1.6" fill="currentColor"/><circle cx="4" cy="19" r="1.6" fill="currentColor"/></svg>Lote</button>
+    <button type="button" class="herr" data-herr="via" title="Dibujar vía o calle (R)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3L4 21M15 3l5 18"/><path d="M12 5v3m0 4v3m0 4v2" stroke-dasharray="0"/></svg>Vía</button>
+    <button type="button" class="herr" data-herr="area" title="Dibujar área común (A)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 18l4-12h12l-4 12z"/><path d="M11 14c1-3 3-4 5-4" /></svg>Área</button>
+    <button type="button" class="herr" data-herr="terreno" title="Dibujar contorno del terreno (T)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 2"><path d="M8 3h13l-5 18H3z"/></svg>Terreno</button>
+    <button type="button" class="herr" data-herr="rotonda" title="Rotonda: arrastra para dibujar (O)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="8" ry="6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>Rotonda</button>
+    <button type="button" class="herr" data-herr="texto" title="Texto (X)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 6V4h14v2M12 4v16M9 20h6"/></svg>Texto</button>
+  </nav>
+
+  <section class="lienzo" id="lienzo">
+    <div class="plano-marco" id="marco">
+      <svg id="plano" class="plano-svg" role="img" aria-label="Plano en edición"></svg>
+    </div>
+    <div class="lienzo-info">
+      <span id="ayudaHerr"></span>
+      <span class="zoom">
+        <button type="button" class="btn btn-icono" id="zoomMenos" aria-label="Alejar">−</button>
+        <button type="button" class="btn btn-icono" id="zoomMas" aria-label="Acercar">+</button>
+        <button type="button" class="btn" id="zoomReset">Encuadrar</button>
+      </span>
+    </div>
+  </section>
+
+  <aside class="propiedades" id="propiedades" aria-label="Propiedades"></aside>
+</main>
+
+<dialog class="modal" id="modal"></dialog>
+<div class="aviso-flotante" id="aviso" role="status" hidden></div>
+
+<script src="data/condominios.js"></script>
+<script src="assets/js/plano.js"></script>
+<script src="assets/js/editor.js"></script>
+</body>
+</html>

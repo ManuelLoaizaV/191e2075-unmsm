@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 150">
+<circle cx="72" cy="75" r="62" fill="#f4ead8" stroke="#7a4a26" stroke-width="5"/>
+<path d="M72 78 C 72 58 72 44 72 30" stroke="#5e7a2e" stroke-width="6" stroke-linecap="round" fill="none"/>
+<path d="M72 50 C 50 48 40 34 38 20 C 58 20 70 32 72 50 Z" fill="#7c9a3a"/>
+<path d="M72 42 C 92 38 104 24 108 10 C 86 12 74 24 72 42 Z" fill="#9ab64e"/>
+<path d="M22 80 L122 80" stroke="#7a4a26" stroke-width="5" stroke-linecap="round"/>
+<path d="M72 80 C 70 100 58 112 44 122 M72 80 C 76 102 90 112 104 120 M72 80 C 72 104 72 118 72 132 M60 96 C 50 100 42 100 34 98 M86 98 C 96 102 104 102 112 98" stroke="#7a4a26" stroke-width="4" stroke-linecap="round" fill="none"/>
+<text x="150" y="92" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="58" letter-spacing="2" fill="#7a4a26" stroke="#ffffff" stroke-width="3" paint-order="stroke">ECORAIZ</text>
+<rect x="150" y="104" width="310" height="32" rx="16" fill="#8a9a4b" stroke="#ffffff" stroke-width="2"/>
+<text x="305" y="126" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="15" letter-spacing="1.5" fill="#ffffff" text-anchor="middle">CONDOMINIOS ECOLÓGICOS</text>
+</svg>
